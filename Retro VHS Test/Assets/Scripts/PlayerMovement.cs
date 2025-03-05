@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; // Import the UI namespace
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,9 +10,9 @@ public class PlayerMovement : MonoBehaviour
 
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
-    public float runSpeed = 12f;
-    public float walkSpeed = 6f;
-    public float crouchSpeed = 3f;
+    public float runSpeed = 20f;
+    public float walkSpeed = 12f;
+    public float crouchSpeed = 6f;
 
     public float standHeight = 2f;
     public float crouchHeight = 0.2f;
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
 
     Vector3 velocity;
+    Vector2 moveInput;
     private float speed;
     private bool isGrounded;
 
@@ -33,11 +35,15 @@ public class PlayerMovement : MonoBehaviour
     public Slider staminaSlider;
     public GameObject staminaUI;
 
-    // Start is called before the first frame update
+    private PlayerInput playerInput;
+    private bool isJumping;
+    private bool isCrouching;
+
     void Start()
     {
         speed = walkSpeed;
         currentStamina = maxStamina;
+        playerInput = GetComponent<PlayerInput>();
 
         if (staminaSlider != null)
         {
@@ -48,7 +54,6 @@ public class PlayerMovement : MonoBehaviour
         staminaUI.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -58,15 +63,10 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        Vector3 move = transform.right * x + transform.forward * z;
-
+        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
         controller.Move(move * speed * Time.deltaTime);
 
-        // Jump
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (isJumping && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
@@ -74,10 +74,9 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        // Sprint
-        if (Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.LeftControl) && currentStamina > 0)
+        // Sprint Logic
+        if (isSprinting && currentStamina > 0)
         {
-            isSprinting = true;
             speed = runSpeed;
             currentStamina -= staminaDrainRate * Time.deltaTime;
 
@@ -89,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             isSprinting = false;
+
             if (currentStamina < maxStamina)
             {
                 currentStamina += staminaRegenRate * Time.deltaTime;
@@ -102,13 +102,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        // Crouch
-        if (Input.GetKey(KeyCode.LeftControl))
+        // Crouch Logic
+        if (isCrouching)
         {
             controller.height = crouchHeight;
             speed = crouchSpeed;
         }
-        // Normal Walk
         else if (!isSprinting)
         {
             controller.height = standHeight;
@@ -120,5 +119,26 @@ public class PlayerMovement : MonoBehaviour
         {
             staminaSlider.value = currentStamina;
         }
+    }
+
+    // New Input System Callback Methods
+    public void OnMove(InputValue value)
+    {
+        moveInput = value.Get<Vector2>();
+    }
+
+    public void OnJump(InputValue value)
+    {
+        isJumping = value.isPressed;
+    }
+
+    public void OnSprint(InputValue value)
+    {
+        isSprinting = value.isPressed && currentStamina > 0;
+    }
+
+    public void OnCrouch(InputValue value)
+    {
+        isCrouching = value.isPressed;
     }
 }

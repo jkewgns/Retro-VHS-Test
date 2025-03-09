@@ -39,6 +39,15 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping;
     private bool isCrouching;
 
+    public AudioClip[] footstepSounds;
+    public AudioClip breathingSound;
+    public AudioSource audioSource;
+    public AudioSource breathingSource;
+    
+    private bool isMoving;
+    private float stepTimer = 0f;
+    public float stepInterval = 0.5f;
+
     void Start()
     {
         speed = walkSpeed;
@@ -52,6 +61,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         staminaUI.SetActive(false);
+
+        breathingSource.clip = breathingSound;
+        breathingSource.loop = true;
+        breathingSource.volume = 0.2f;
+        breathingSource.Play();
     }
 
     void Update()
@@ -64,6 +78,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
+        isMoving = move.magnitude > 0.1f && isGrounded;
+
         controller.Move(move * speed * Time.deltaTime);
 
         if (isJumping && isGrounded)
@@ -74,7 +90,6 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        // Sprint Logic
         if (isSprinting && currentStamina > 0)
         {
             speed = runSpeed;
@@ -102,7 +117,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        // Crouch Logic
         if (isCrouching)
         {
             controller.height = crouchHeight;
@@ -119,9 +133,31 @@ public class PlayerMovement : MonoBehaviour
         {
             staminaSlider.value = currentStamina;
         }
+
+        PlayFootstepSFX();
     }
 
-    // New Input System Callback Methods
+    void PlayFootstepSFX()
+    {
+        if (isMoving)
+        {
+            stepTimer += Time.deltaTime;
+            if (stepTimer >= stepInterval)
+            {
+                stepTimer = 0f;
+                if (footstepSounds.Length > 0)
+                {
+                    int randomIndex = Random.Range(0, footstepSounds.Length);
+                    audioSource.PlayOneShot(footstepSounds[randomIndex]);
+                }
+            }
+        }
+        else
+        {
+            stepTimer = 0f;
+        }
+    }
+
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();

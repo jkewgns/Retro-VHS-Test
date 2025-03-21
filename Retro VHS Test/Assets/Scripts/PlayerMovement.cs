@@ -47,13 +47,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
-
         Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
+
         isMoving = move.magnitude > 0.1f && isGrounded;
 
         controller.Move(move * speed * Time.deltaTime);
@@ -80,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
                 if (footstepSounds.Length > 0)
                 {
                     int randomIndex = Random.Range(0, footstepSounds.Length);
+                    audioSource.volume = 0.1f;
                     audioSource.PlayOneShot(footstepSounds[randomIndex]);
                 }
             }
@@ -98,5 +94,11 @@ public class PlayerMovement : MonoBehaviour
     public void OnJump(InputValue value)
     {
         isJumping = value.isPressed;
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundCheck.position, groundDistance);
     }
 }

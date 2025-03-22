@@ -12,7 +12,7 @@ public class PlayVoiceline : MonoBehaviour
     public class SubtitleLine
     {
         public string text;
-        public float time; // Time in seconds when this subtitle should appear
+        public float time;
     }
 
     public SubtitleLine[] subtitles;
@@ -66,7 +66,7 @@ public class PlayVoiceline : MonoBehaviour
             subtitleText.text = subtitle.text;
         }
 
-        yield return new WaitForSeconds(2f); // Keep the last subtitle visible briefly
+        yield return new WaitForSeconds(2f);
         subtitleText.text = "";
         subtitleText.gameObject.SetActive(false);
     }

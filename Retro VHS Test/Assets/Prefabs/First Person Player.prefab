@@ -865,7 +865,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &4417958908035012103
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 8826581703663575853}
-  gravity: -19.62
+  gravity: -2.4525
   jumpHeight: 0
   walkSpeed: 3
   groundCheck: {fileID: 1044914387873391891}

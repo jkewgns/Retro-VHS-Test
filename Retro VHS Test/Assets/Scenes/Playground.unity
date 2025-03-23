@@ -551,7 +551,7 @@ GameObject:
   - component: {fileID: 869418578}
   - component: {fileID: 869418577}
   - component: {fileID: 869418576}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -687,7 +687,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a16bc9df91b1a7b459ab357bf3ec9831,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.48
+      value: 25.89
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a16bc9df91b1a7b459ab357bf3ec9831,
         type: 3}
@@ -737,40 +737,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a16bc9df91b1a7b459ab357bf3ec9831,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1545311952}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a16bc9df91b1a7b459ab357bf3ec9831, type: 3}
---- !u!1 &1545311951 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a16bc9df91b1a7b459ab357bf3ec9831,
-    type: 3}
-  m_PrefabInstance: {fileID: 1545311950}
-  m_PrefabAsset: {fileID: 0}
---- !u!195 &1545311952
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545311951}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 11
-  m_Acceleration: 12
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &1582808853
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,7 +773,6 @@ MonoBehaviour:
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
-    serializedVersion: 2
     m_Bits: 3584
   m_UseGeometry: 0
   m_DefaultArea: 0
@@ -817,6 +784,8 @@ MonoBehaviour:
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: 4ddb3b81b30487a46ac979afcc01a791, type: 2}
+  m_LastPosition: {x: -11.871013, y: 0.16289043, z: -1.127213}
+  m_LastRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!4 &1582808855
 Transform:
   m_ObjectHideFlags: 0

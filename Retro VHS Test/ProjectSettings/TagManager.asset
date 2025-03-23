@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Door
+  - Enemy
+  - PointReject
+  - Water
+  - Interactive
   layers:
   - Default
   - TransparentFX
@@ -18,8 +21,8 @@ TagManager:
   - InvisibleGeometry
   - WhatIsGround
   - WhatIsPlayer
-  - 
-  - 
+  - PointReject
+  - Enemy
   - 
   - 
   - 

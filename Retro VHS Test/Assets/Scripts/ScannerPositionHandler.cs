@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class ScannerPositionHandler : MonoBehaviour
 {
+    [Header("Scanner Settings")]
     public Transform playerCamera;
     public LayerMask wallLayer;
     public float maxDistance = 0.5f;
     public float minDistance = 0.1f;
     public float smoothingSpeed = 10f;
 
+    [Header("Default Position Settings")]
     private Vector3 defaultLocalPosition;
     private Quaternion defaultLocalRotation;
 

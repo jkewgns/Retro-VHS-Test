@@ -6,14 +6,19 @@ using UnityEngine.InputSystem;
 
 public class LevelLoader : MonoBehaviour
 {
+    [Header("UI Settings")]
     public Animator transition;
     public float transitionTime = 1f;
     public GameObject promptUI;
+
+    [Header("Player and Door Settings")]
     public Transform player;
     public Transform door;
     public float activationDistance = 3f;
 
+    [Header("Input Settings")]
     private InputAction interactAction;
+
     private bool isNearDoor = false;
 
     private void Awake()

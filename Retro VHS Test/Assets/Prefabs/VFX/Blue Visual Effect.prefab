@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7634396921019305571}
   - component: {fileID: 7634396921019305596}
   m_Layer: 0
-  m_Name: Visual Effect
+  m_Name: Blue Visual Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

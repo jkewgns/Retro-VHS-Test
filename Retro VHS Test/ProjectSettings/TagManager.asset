@@ -8,6 +8,7 @@ TagManager:
   - PointReject
   - Water
   - Interactive
+  - Map
   layers:
   - Default
   - TransparentFX

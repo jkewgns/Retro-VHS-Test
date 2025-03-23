@@ -5,7 +5,10 @@ using System.Collections;
 
 public class PlayVoiceline : MonoBehaviour
 {
+    [Header("Audio Settings")]
     public AudioSource audioSource;
+
+    [Header("Subtitle Settings")]
     public TMP_Text subtitleText;
 
     [System.Serializable]
@@ -15,10 +18,14 @@ public class PlayVoiceline : MonoBehaviour
         public float time;
     }
 
+    [Header("Subtitle Lines")]
     public SubtitleLine[] subtitles;
 
+    [Header("Input Settings")]
     private PlayerInput playerInput;
     private InputAction interactAction;
+
+    [Header("State Settings")]
     private bool hasPlayed = false;
 
     void Awake()

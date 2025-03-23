@@ -1,47 +1,65 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // Movement Variables
+    [Header("Movement Settings")]
     public CharacterController controller;
-
     public float gravity = -9.81f;
-    public float jumpHeight = 3f;
+    public float gravityMultiplier = 2f;
     public float walkSpeed = 12f;
-
+    public float crouchSpeed = 6f;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
-    Vector3 velocity;
-    Vector2 moveInput;
-    private float speed;
-    private bool isGrounded;
+    // Health Variables
+    [Header("Health Settings")]
+    public float maxHealth = 100f;
+    private float currentHealth;
 
-    private PlayerInput playerInput;
-    private bool isJumping;
-
+    // Audio Variables
+    [Header("Audio Settings")]
     public AudioClip[] footstepSounds;
     public AudioClip breathingSound;
     public AudioSource audioSource;
     public AudioSource breathingSource;
 
-    private bool isMoving;
+    // Footstep Settings
     private float stepTimer = 0f;
     public float stepInterval = 0.5f;
+    private float defaultStepInterval;
+
+    // Movement Variables
+    private Vector3 velocity;
+    private Vector2 moveInput;
+    private float speed;
+    private bool isGrounded;
+    private bool isCrouching;
+
+    private PlayerInput playerInput;
+    private bool isMoving;
+
+    // Store initial position for respawn
+    private Vector3 startingPosition;
 
     void Start()
     {
+        // Store the starting position of the player
+        startingPosition = transform.position;
+
         speed = walkSpeed;
+        defaultStepInterval = stepInterval;
         playerInput = GetComponent<PlayerInput>();
 
         breathingSource.clip = breathingSound;
         breathingSource.loop = true;
         breathingSource.volume = 0.2f;
         breathingSource.Play();
+
+        currentHealth = maxHealth; // Set initial health
     }
 
     void Update()
@@ -53,12 +71,11 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-        if (isJumping && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
+        if (!isGrounded)
+            velocity.y += gravity * gravityMultiplier * Time.deltaTime;
+        else
+            velocity.y = 0f;
 
-        velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
         PlayFootstepSFX();
@@ -91,9 +108,29 @@ public class PlayerMovement : MonoBehaviour
         moveInput = value.Get<Vector2>();
     }
 
-    public void OnJump(InputValue value)
+    public void OnCrouch()
     {
-        isJumping = value.isPressed;
+        isCrouching = !isCrouching;
+        speed = isCrouching ? crouchSpeed : walkSpeed;
+        stepInterval = isCrouching ? defaultStepInterval * 2f : defaultStepInterval;
+    }
+
+    public bool IsCrouching()
+    {
+        return isCrouching;
+    }
+
+    public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
+        Debug.Log("Player Health: " + currentHealth);
+    }
+
+    public void Respawn()
+    {
+        Debug.Log("Player has died! Respawning at starting position...");
+        transform.position = startingPosition; // Teleport the player back to the starting position
+        currentHealth = maxHealth; // Reset health to max
     }
 
     void OnDrawGizmos()

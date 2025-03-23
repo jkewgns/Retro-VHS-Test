@@ -4,9 +4,12 @@ using System.Collections;
 
 public class StoryScroller : MonoBehaviour
 {
+    [Header("Scroll Settings")]
     public float scrollSpeed = 50f;
     public float maxScrollSpeed = 100f;
     public float targetY = 1874f;
+
+    [Header("Transition Settings")]
     public Animator transition;
     public float transitionTime = 1f;
 

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2fac45c6f0ea51e4793aae3f7ca661ab, type: 3}
-  m_Name: Yellow PointsData
+  m_Name: Blue PointsData
   m_EditorClassIdentifier: 
   includedTags:
-  - Map
-  prefab: {fileID: 7634396921019305571, guid: bb28d42e69c58ed45bbb0fe5badee012, type: 3}
+  - Water
+  prefab: {fileID: 7634396921019305571, guid: 16297192423a1ea4792ac6b3f34b2929, type: 3}
   currentVisualEffect: {fileID: 0}
   positionsList: []
   texture: {fileID: 0}

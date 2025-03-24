@@ -5221,6 +5221,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1714852003652670115, guid: 5a69ea47459e61a4083894b4a7e747a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2513930559007138919, guid: 5a69ea47459e61a4083894b4a7e747a2,
         type: 3}
       propertyPath: vfxContainer

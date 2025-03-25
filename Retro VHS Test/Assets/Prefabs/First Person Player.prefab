@@ -313,11 +313,11 @@ MonoBehaviour:
   playerInput: {fileID: 5555068480651072793}
   vfxContainer: {fileID: 0}
   castPoint: {fileID: 4055452704538903767}
-  radius: 10
+  radius: 5
   maxRadius: 10
   minRadius: 1
   pointsPerScan: 100
-  range: 10
+  range: 20
   resolution: 100
 --- !u!114 &4029754846780624177
 MonoBehaviour:
@@ -736,7 +736,7 @@ Transform:
   m_GameObject: {fileID: 3410553970983176941}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 14.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1219,9 +1219,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.6455149
-  m_Height: 3.6980917
+  m_Height: 3.736569
   m_Direction: 1
-  m_Center: {x: -0.005145788, y: 0.036298633, z: 0.010892212}
+  m_Center: {x: -0.005145788, y: -0.3889072, z: 0.010892212}
 --- !u!1 &4634887388235075873
 GameObject:
   m_ObjectHideFlags: 0

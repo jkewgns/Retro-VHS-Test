@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -23,9 +24,9 @@ public class PlayerMovement : MonoBehaviour
     // Audio Variables
     [Header("Audio Settings")]
     public AudioClip[] footstepSounds;
-    public AudioClip[] waterFootstepSounds; // New array for water footstep sounds
+    public AudioClip[] waterFootstepSounds;
     public AudioClip breathingSound;
-    public AudioClip landingSound; // New landing sound
+    public AudioClip landingSound;
     public AudioSource audioSource;
     public AudioSource breathingSource;
 
@@ -50,10 +51,15 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 startingPosition;
     private float lastYPosition;
 
+    // Camera Shake Variables
+    [Header("Camera Shake")]
+    public Transform cameraTransform;
+    private Vector3 originalCameraPosition;
+    private bool isShaking;
+
     void Start()
     {
         startingPosition = transform.position;
-
         speed = walkSpeed;
         defaultStepInterval = stepInterval;
         playerInput = GetComponent<PlayerInput>();
@@ -65,6 +71,8 @@ public class PlayerMovement : MonoBehaviour
 
         currentHealth = maxHealth;
         lastYPosition = transform.position.y;
+
+        originalCameraPosition = cameraTransform.localPosition;
     }
 
     void Update()
@@ -99,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (isInWater)
             {
-                stepInterval = defaultStepInterval; 
+                stepInterval = defaultStepInterval;
             }
             else if (isCrouching)
             {
@@ -121,6 +129,7 @@ public class PlayerMovement : MonoBehaviour
                     int randomIndex = Random.Range(0, currentFootstepSounds.Length);
                     audioSource.volume = isInWater ? 0.5f : 0.1f;
                     audioSource.PlayOneShot(currentFootstepSounds[randomIndex]);
+                    Debug.Log("Footstep sound played: " + currentFootstepSounds[randomIndex].name);
                 }
             }
         }
@@ -139,11 +148,12 @@ public class PlayerMovement : MonoBehaviour
         else 
         {
             float fallDistance = lastYPosition - transform.position.y;
-            
+
             if (fallDistance > 3f) 
             {
                 Debug.Log($"Player landed after falling {fallDistance} units");
                 PlayLandingSound(fallDistance);
+                StartCoroutine(CameraShake(fallDistance));
             }
             lastYPosition = transform.position.y;
         }
@@ -153,10 +163,71 @@ public class PlayerMovement : MonoBehaviour
     {
         if (landingSound != null)
         {
-            float volume = Mathf.Clamp(fallDistance / 15f, 0.2f, 1f);
+            float volume;
+
+            if (fallDistance >= 18f)
+                volume = 1f;
+            else if (fallDistance >= 12f)
+                volume = 0.7f;
+            else if (fallDistance >= 8f)
+                volume = 0.4f;
+            else
+                volume = 0.2f;
+
             audioSource.PlayOneShot(landingSound, volume);
             Debug.Log($"Landing sound played at {Mathf.Round(volume * 100)}% volume after falling {fallDistance} units.");
         }
+    }
+
+    IEnumerator CameraShake(float fallDistance)
+    {
+        if (isShaking) yield break;
+        isShaking = true;
+
+        float shakeDuration;
+        float shakeIntensity;
+
+        if (fallDistance >= 18f)
+        {
+            shakeDuration = 0.5f;
+            shakeIntensity = 0.3f;
+        }
+        else if (fallDistance >= 12f)
+        {
+            shakeDuration = 0.35f;
+            shakeIntensity = 0.2f;
+        }
+        else if (fallDistance >= 8f)
+        {
+            shakeDuration = 0.2f;
+            shakeIntensity = 0.1f;
+        }
+        else
+        {
+            shakeDuration = 0.1f;
+            shakeIntensity = 0.05f;
+        }
+
+        float elapsed = 0f;
+
+        while (elapsed < shakeDuration)
+        {
+            float x = Random.Range(-1f, 1f) * shakeIntensity;
+            float y = Random.Range(-1f, 1f) * shakeIntensity;
+
+            cameraTransform.localPosition = originalCameraPosition + new Vector3(x, y, 0);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        cameraTransform.localPosition = originalCameraPosition;
+        isShaking = false;
+    }
+
+    public bool IsCrouching()
+    {
+        return isCrouching;
     }
 
     public void OnMove(InputValue value)
@@ -171,11 +242,6 @@ public class PlayerMovement : MonoBehaviour
         stepInterval = isCrouching ? defaultStepInterval * 2f : defaultStepInterval;
     }
 
-    public bool IsCrouching()
-    {
-        return isCrouching;
-    }
-
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
@@ -184,7 +250,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void Respawn()
     {
-        Debug.Log("Player has died! Respawning at starting position...");
         transform.position = startingPosition;
         currentHealth = maxHealth;
     }

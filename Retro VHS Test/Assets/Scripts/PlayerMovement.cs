@@ -129,7 +129,6 @@ public class PlayerMovement : MonoBehaviour
                     int randomIndex = Random.Range(0, currentFootstepSounds.Length);
                     audioSource.volume = isInWater ? 0.5f : 0.1f;
                     audioSource.PlayOneShot(currentFootstepSounds[randomIndex]);
-                    Debug.Log("Footstep sound played: " + currentFootstepSounds[randomIndex].name);
                 }
             }
         }

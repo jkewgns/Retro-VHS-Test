@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4312309228727066409}
   - component: {fileID: 4946183255755509122}
   - component: {fileID: 7591215748660556693}
-  - component: {fileID: 466921965460602013}
+  - component: {fileID: 6464358700274578920}
   m_Layer: 8
-  m_Name: Time
+  m_Name: TimeDisplayText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &466921965460602013
+--- !u!114 &6464358700274578920
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -257,7 +257,7 @@ LineRenderer:
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 65535
+      ctime1: 0
       ctime2: 0
       ctime3: 0
       ctime4: 0
@@ -273,7 +273,7 @@ LineRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
@@ -313,7 +313,7 @@ MonoBehaviour:
   playerInput: {fileID: 5555068480651072793}
   vfxContainer: {fileID: 0}
   castPoint: {fileID: 4055452704538903767}
-  radius: 5
+  radius: 10
   maxRadius: 10
   minRadius: 1
   pointsPerScan: 100
@@ -980,6 +980,7 @@ MonoBehaviour:
   audioSource: {fileID: 7642063440879819544}
   breathingSource: {fileID: 4127766814220454369}
   stepInterval: 0.5
+  isInWater: 0
 --- !u!82 &7642063440879819544
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1233,9 +1234,9 @@ GameObject:
   - component: {fileID: 3736568184908560239}
   - component: {fileID: 6876254731330516586}
   - component: {fileID: 7103521385668063074}
-  - component: {fileID: 1881475612991910157}
+  - component: {fileID: 1089644689387109164}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: ScannerTimeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1395,7 +1396,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 6876254731330516586}
   m_maskType: 0
---- !u!114 &1881475612991910157
+--- !u!114 &1089644689387109164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1665,7 +1666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f581527b1b894548abf244761c2706d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
+  mouseSensitivity: 50
   playerBody: {fileID: 385654743797634637}
 --- !u!1 &8336398330237564842
 GameObject:

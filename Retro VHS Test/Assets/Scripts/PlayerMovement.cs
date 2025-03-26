@@ -42,12 +42,13 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInput playerInput;
     private bool isMoving;
 
-    // Store initial position for respawn
+    // Water Detection
+    [HideInInspector] public bool isInWater = false;
+
     private Vector3 startingPosition;
 
     void Start()
     {
-        // Store the starting position of the player
         startingPosition = transform.position;
 
         speed = walkSpeed;
@@ -59,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         breathingSource.volume = 0.2f;
         breathingSource.Play();
 
-        currentHealth = maxHealth; // Set initial health
+        currentHealth = maxHealth;
     }
 
     void Update()
@@ -129,8 +130,25 @@ public class PlayerMovement : MonoBehaviour
     public void Respawn()
     {
         Debug.Log("Player has died! Respawning at starting position...");
-        transform.position = startingPosition; // Teleport the player back to the starting position
-        currentHealth = maxHealth; // Reset health to max
+        transform.position = startingPosition;
+        currentHealth = maxHealth;
+    }
+
+    // OnTriggerEnter for water detection
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            isInWater = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            isInWater = false;
+        }
     }
 
     void OnDrawGizmos()

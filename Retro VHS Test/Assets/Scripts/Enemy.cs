@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     [Header("Enemy Movement Settings")]
     public float rotationSpeed = 5f;
     public float detectionRange = 10f;
+    public float increasedDetectionRange = 20f;
+    public float crouchingAndInWaterDetectionRange = 5f;
     public float initialMovementSpeed = 1f;
     public float maxMovementSpeed = 5f;
     public float speedIncreaseRate = 0.1f;
@@ -18,6 +20,7 @@ public class Enemy : MonoBehaviour
 
     private float currentMovementSpeed;
     private PlayerMovement playerMovement;
+    private bool isInWater = false;
 
     private void Start()
     {
@@ -27,13 +30,29 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        // Use the isInWater variable from PlayerMovement script
+        isInWater = playerMovement.isInWater;
+
         if (playerMovement != null && playerMovement.IsCrouching())
         {
             return;
         }
 
+        // Adjust detection range based on whether the player is in water and crouching
+        float currentDetectionRange = detectionRange;
+
+        if (isInWater && playerMovement.IsCrouching())
+        {
+            currentDetectionRange = crouchingAndInWaterDetectionRange;
+        }
+        else if (isInWater)
+        {
+            currentDetectionRange = increasedDetectionRange;
+        }
+
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-        if (distanceToPlayer <= detectionRange)
+
+        if (distanceToPlayer <= currentDetectionRange)
         {
             LookAtPlayer();
             MoveTowardsPlayer();

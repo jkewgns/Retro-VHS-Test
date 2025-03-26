@@ -188,7 +188,7 @@ LineRenderer:
     generateLightingData: 0
   m_MaskInteraction: 0
   m_UseWorldSpace: 1
-  m_Loop: 0
+  m_Loop: 1
   m_ApplyActiveColorSpace: 1
 --- !u!114 &7697065285222414461
 MonoBehaviour:
@@ -216,8 +216,6 @@ MonoBehaviour:
   vfxContainer: {fileID: 0}
   castPoint: {fileID: 4609195922090594070}
   radius: 10
-  maxRadius: 10
-  minRadius: 1
   pointsPerScan: 100
   range: 50
   resolution: 100

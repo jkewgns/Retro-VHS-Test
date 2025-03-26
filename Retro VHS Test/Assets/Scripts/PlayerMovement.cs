@@ -132,26 +132,30 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckLanding()
     {
-        // Check if player has landed after falling from a significant height
-        if (isGrounded && transform.position.y < lastYPosition - 1f) // Threshold for fall height
+        if (!isGrounded) 
         {
-            Debug.Log("Player landed after falling from a height");  // Debug log for landing detection
-            PlayLandingSound();
+            lastYPosition = Mathf.Max(lastYPosition, transform.position.y);
         }
-
-        lastYPosition = transform.position.y;
+        else 
+        {
+            float fallDistance = lastYPosition - transform.position.y;
+            
+            if (fallDistance > 3f) 
+            {
+                Debug.Log($"Player landed after falling {fallDistance} units");
+                PlayLandingSound(fallDistance);
+            }
+            lastYPosition = transform.position.y;
+        }
     }
 
-    void PlayLandingSound()
+    void PlayLandingSound(float fallDistance)
     {
         if (landingSound != null)
         {
-            audioSource.PlayOneShot(landingSound);
-            Debug.Log("Landing sound played: " + landingSound.name);  // Debug log for landing SFX
-        }
-        else
-        {
-            Debug.LogWarning("Landing sound is not assigned!");  // Warning if landing sound is not assigned
+            float volume = Mathf.Clamp(fallDistance / 15f, 0.2f, 1f);
+            audioSource.PlayOneShot(landingSound, volume);
+            Debug.Log($"Landing sound played at {Mathf.Round(volume * 100)}% volume after falling {fallDistance} units.");
         }
     }
 

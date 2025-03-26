@@ -23,7 +23,9 @@ public class PlayerMovement : MonoBehaviour
     // Audio Variables
     [Header("Audio Settings")]
     public AudioClip[] footstepSounds;
+    public AudioClip[] waterFootstepSounds; // New array for water footstep sounds
     public AudioClip breathingSound;
+    public AudioClip landingSound; // New landing sound
     public AudioSource audioSource;
     public AudioSource breathingSource;
 
@@ -46,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public bool isInWater = false;
 
     private Vector3 startingPosition;
+    private float lastYPosition;
 
     void Start()
     {
@@ -61,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
         breathingSource.Play();
 
         currentHealth = maxHealth;
+        lastYPosition = transform.position.y;
     }
 
     void Update()
@@ -80,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         PlayFootstepSFX();
+        CheckLanding();
     }
 
     void PlayFootstepSFX()
@@ -87,20 +92,66 @@ public class PlayerMovement : MonoBehaviour
         if (isMoving)
         {
             stepTimer += Time.deltaTime;
+
+            if (isInWater && isCrouching)
+            {
+                stepInterval = defaultStepInterval * 2f;
+            }
+            else if (isInWater)
+            {
+                stepInterval = defaultStepInterval; 
+            }
+            else if (isCrouching)
+            {
+                stepInterval = defaultStepInterval * 2f;
+            }
+            else
+            {
+                stepInterval = defaultStepInterval;
+            }
+
             if (stepTimer >= stepInterval)
             {
                 stepTimer = 0f;
-                if (footstepSounds.Length > 0)
+
+                AudioClip[] currentFootstepSounds = isInWater ? waterFootstepSounds : footstepSounds;
+
+                if (currentFootstepSounds.Length > 0)
                 {
-                    int randomIndex = Random.Range(0, footstepSounds.Length);
-                    audioSource.volume = 0.1f;
-                    audioSource.PlayOneShot(footstepSounds[randomIndex]);
+                    int randomIndex = Random.Range(0, currentFootstepSounds.Length);
+                    audioSource.volume = isInWater ? 0.5f : 0.1f;
+                    audioSource.PlayOneShot(currentFootstepSounds[randomIndex]);
                 }
             }
         }
         else
         {
             stepTimer = 0f;
+        }
+    }
+
+    void CheckLanding()
+    {
+        // Check if player has landed after falling from a significant height
+        if (isGrounded && transform.position.y < lastYPosition - 1f) // Threshold for fall height
+        {
+            Debug.Log("Player landed after falling from a height");  // Debug log for landing detection
+            PlayLandingSound();
+        }
+
+        lastYPosition = transform.position.y;
+    }
+
+    void PlayLandingSound()
+    {
+        if (landingSound != null)
+        {
+            audioSource.PlayOneShot(landingSound);
+            Debug.Log("Landing sound played: " + landingSound.name);  // Debug log for landing SFX
+        }
+        else
+        {
+            Debug.LogWarning("Landing sound is not assigned!");  // Warning if landing sound is not assigned
         }
     }
 
@@ -134,7 +185,6 @@ public class PlayerMovement : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    // OnTriggerEnter for water detection
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Water"))

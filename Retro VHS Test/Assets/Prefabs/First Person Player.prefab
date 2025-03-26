@@ -306,7 +306,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ac46d118836a405478652e979553d16a, type: 2}
   - {fileID: 11400000, guid: 7ba8cdb9ea40ce448bbf44e9933df80f, type: 2}
   - {fileID: 11400000, guid: d8d7b3c44eab5c546bb30deedf8aa2c9, type: 2}
-  reuseOldParticles: 1
+  reuseOldParticles: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 11923
@@ -976,7 +976,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 766f5a68bf81e214bbc66938ac3461cd, type: 3}
   - {fileID: 8300000, guid: bd0ff1186ce9e5644be69229bf1ae911, type: 3}
   - {fileID: 8300000, guid: ccffb8184626eb84883d051483710741, type: 3}
+  waterFootstepSounds:
+  - {fileID: 8300000, guid: 7e2499b4ad59c8346bf7503452b1ab4f, type: 3}
+  - {fileID: 8300000, guid: 1e71066d4f533f04faa340360eac2d25, type: 3}
+  - {fileID: 8300000, guid: a21474f88c303fe4bbe2b235f0706f40, type: 3}
+  - {fileID: 8300000, guid: ed9c946f923824d478954a6e49d7deee, type: 3}
+  - {fileID: 8300000, guid: 00006400de6cec84eba84f199e61175f, type: 3}
+  - {fileID: 8300000, guid: 7bc54a7e7acaeb545afa3ace5132048e, type: 3}
+  - {fileID: 8300000, guid: 49df4b4388365a34eacb14b2b623b449, type: 3}
+  - {fileID: 8300000, guid: 58f5d26ecd3d68445948d4b5a3487803, type: 3}
+  - {fileID: 8300000, guid: 8bc0c12fae5bd984cadc7df2411bf8b3, type: 3}
+  - {fileID: 8300000, guid: 14c60ba0900b4814687498f7577e7cef, type: 3}
   breathingSound: {fileID: 8300000, guid: 84df21028d9383b4da78e4852ba7b373, type: 3}
+  landingSound: {fileID: 8300000, guid: f455626ec8fa8e845a6e1e759ef46eed, type: 3}
   audioSource: {fileID: 7642063440879819544}
   breathingSource: {fileID: 4127766814220454369}
   stepInterval: 0.5
@@ -1666,7 +1678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f581527b1b894548abf244761c2706d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 50
+  mouseSensitivity: 25
   playerBody: {fileID: 385654743797634637}
 --- !u!1 &8336398330237564842
 GameObject:

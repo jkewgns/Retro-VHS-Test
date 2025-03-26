@@ -148,7 +148,7 @@ PrefabInstance:
     - target: {fileID: 2596969420588702791, guid: 79c9aadbe9820e340add79fcf679b310,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 3947
+      value: 3953
       objectReference: {fileID: 0}
     - target: {fileID: 5807796490411230473, guid: 79c9aadbe9820e340add79fcf679b310,
         type: 3}
@@ -1146,6 +1146,11 @@ PrefabInstance:
       propertyPath: vfxContainer
       value: 
       objectReference: {fileID: 405733613}
+    - target: {fileID: 2513930559007138919, guid: 5a69ea47459e61a4083894b4a7e747a2,
+        type: 3}
+      propertyPath: reuseOldParticles
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4417958908035012103, guid: 5a69ea47459e61a4083894b4a7e747a2,
         type: 3}
       propertyPath: m_Name
@@ -1165,6 +1170,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2569953643441992624, guid: 6773d5362125e46458bacfa19c927de8,
     type: 3}
   m_PrefabInstance: {fileID: 1182027335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1779251783 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4609195922090594070, guid: 5db44fa62b16d6843ae8d54577b051df,
+    type: 3}
+  m_PrefabInstance: {fileID: 2141613467}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2141613467
 PrefabInstance:
@@ -1229,6 +1240,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScannerTurret
       objectReference: {fileID: 0}
+    - target: {fileID: 7697065285222414461, guid: 5db44fa62b16d6843ae8d54577b051df,
+        type: 3}
+      propertyPath: scanSpread
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7697065285222414461, guid: 5db44fa62b16d6843ae8d54577b051df,
+        type: 3}
+      propertyPath: scanTarget
+      value: 
+      objectReference: {fileID: 1779251783}
     - target: {fileID: 7697065285222414461, guid: 5db44fa62b16d6843ae8d54577b051df,
         type: 3}
       propertyPath: vfxContainer

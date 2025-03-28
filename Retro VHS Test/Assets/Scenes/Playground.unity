@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 108198369}
   m_Layer: 9
   m_Name: Cube (6)
-  m_TagString: Map
+  m_TagString: Hidden
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: 246991536}
   m_Layer: 9
   m_Name: Cube (4)
-  m_TagString: Map
+  m_TagString: Hidden
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1409,7 +1409,7 @@ GameObject:
   - component: {fileID: 513440738}
   m_Layer: 9
   m_Name: L
-  m_TagString: Map
+  m_TagString: Hidden
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3368,7 +3368,7 @@ GameObject:
   - component: {fileID: 897187437}
   m_Layer: 9
   m_Name: Cube (3)
-  m_TagString: Map
+  m_TagString: Hidden
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4354,7 +4354,7 @@ GameObject:
   - component: {fileID: 1324261887}
   m_Layer: 9
   m_Name: Cube (5)
-  m_TagString: Map
+  m_TagString: Hidden
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7121,6 +7121,17 @@ PrefabInstance:
       propertyPath: reuseOldParticles
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2513930559007138919, guid: 5a69ea47459e61a4083894b4a7e747a2,
+        type: 3}
+      propertyPath: pointsData.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513930559007138919, guid: 5a69ea47459e61a4083894b4a7e747a2,
+        type: 3}
+      propertyPath: pointsData.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: bf318a58bd0679d4580c9ad1456f5693,
+        type: 2}
     - target: {fileID: 4417958908035012103, guid: 5a69ea47459e61a4083894b4a7e747a2,
         type: 3}
       propertyPath: m_Name
@@ -7373,6 +7384,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6114675845144191209, guid: c749f4735cded15459105b0657009188,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hidden
+      objectReference: {fileID: 0}
     - target: {fileID: 7220027771354448094, guid: c749f4735cded15459105b0657009188,
         type: 3}
       propertyPath: player
@@ -7397,6 +7413,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744289631463222799, guid: c749f4735cded15459105b0657009188,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hidden
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7487,7 +7508,7 @@ GameObject:
   - component: {fileID: 1691080424}
   m_Layer: 9
   m_Name: Cube (7)
-  m_TagString: Map
+  m_TagString: Hidden
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

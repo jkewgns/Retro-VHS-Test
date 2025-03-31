@@ -673,20 +673,10 @@ PrefabInstance:
       propertyPath: vfxContainer
       value: 
       objectReference: {fileID: 168594324}
-    - target: {fileID: 3484937339080358950, guid: 5a69ea47459e61a4083894b4a7e747a2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4417958908035012103, guid: 5a69ea47459e61a4083894b4a7e747a2,
         type: 3}
       propertyPath: m_Name
       value: First Person Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7257074547385483835, guid: 5a69ea47459e61a4083894b4a7e747a2,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

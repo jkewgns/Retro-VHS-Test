@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7662139710400691386}
+      - m_Target: {fileID: 7432935694526490665}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: Number
         m_Mode: 3
@@ -524,7 +524,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7662139710400691386}
+      - m_Target: {fileID: 7432935694526490665}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: Number
         m_Mode: 3
@@ -688,7 +688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6449671944067534032
 RectTransform:
   m_ObjectHideFlags: 0
@@ -696,7 +696,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2111541156604946604}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1064,7 +1064,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7662139710400691386}
+      - m_Target: {fileID: 7432935694526490665}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: Number
         m_Mode: 3
@@ -1332,7 +1332,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7662139710400691386}
+      - m_Target: {fileID: 7432935694526490665}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: Number
         m_Mode: 3
@@ -1465,7 +1465,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7662139710400691386}
+      - m_Target: {fileID: 7432935694526490665}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: Execute
         m_Mode: 1
@@ -1973,7 +1973,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7662139710400691386}
+      - m_Target: {fileID: 7432935694526490665}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: Number
         m_Mode: 3
@@ -2378,7 +2378,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7662139710400691386}
+      - m_Target: {fileID: 7432935694526490665}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: Number
         m_Mode: 3
@@ -2646,7 +2646,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7662139710400691386}
+      - m_Target: {fileID: 7432935694526490665}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: Number
         m_Mode: 3
@@ -2779,7 +2779,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7662139710400691386}
+      - m_Target: {fileID: 7432935694526490665}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: Number
         m_Mode: 3
@@ -2912,7 +2912,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7662139710400691386}
+      - m_Target: {fileID: 7432935694526490665}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: Number
         m_Mode: 3
@@ -3121,7 +3121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7662139710400691386}
+      - m_Target: {fileID: 7432935694526490665}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: Clear
         m_Mode: 1
@@ -3254,7 +3254,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7662139710400691386}
+      - m_Target: {fileID: 7432935694526490665}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1
@@ -3412,7 +3412,6 @@ GameObject:
   - component: {fileID: 5511651159788186726}
   - component: {fileID: 7863433923977729683}
   - component: {fileID: 9197851631188147869}
-  - component: {fileID: 7662139710400691386}
   m_Layer: 5
   m_Name: BG
   m_TagString: Untagged
@@ -3490,25 +3489,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7662139710400691386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8657774676819651168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e35cf9c6e98a45d49a4692588d98d1c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  keypadObj: {fileID: 4874447625564129052}
-  textObj: {fileID: 1216163722527997464}
-  answer: 8924
-  button: {fileID: 0}
-  correct: {fileID: 0}
-  wrong: {fileID: 0}
 --- !u!1 &8707093710434880747
 GameObject:
   m_ObjectHideFlags: 0
@@ -3792,6 +3772,7 @@ GameObject:
   - component: {fileID: 3688060205871523757}
   - component: {fileID: 9000419736990082252}
   - component: {fileID: 8573832932454004261}
+  - component: {fileID: 7432935694526490665}
   m_Layer: 9
   m_Name: Keypad
   m_TagString: Interactive
@@ -3898,6 +3879,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df218ae87ad907489bb93d3dc5b1b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keypadObj: {fileID: 4874447625564129052}
-  keypadText: {fileID: 0}
+  keypadObj: {fileID: 9216895647884728782}
+  keypadText: {fileID: 2111541156604946604}
+  player: {fileID: 0}
   inReach: 0
+  activationDistance: 4.5
+--- !u!114 &7432935694526490665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9216895647884728782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35cf9c6e98a45d49a4692588d98d1c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playerCam: {fileID: 0}
+  keypadUI: {fileID: 8657774676819651168}
+  scanner: {fileID: 0}
+  levelLoader: {fileID: 0}
+  textObj: {fileID: 1216163722527997464}
+  answer: 8924

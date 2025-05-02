@@ -5137,12 +5137,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 947518188}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &969621550 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3201493328380668307, guid: 6773d5362125e46458bacfa19c927de8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1810128512}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &986177011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6960,17 +6954,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 107d6ac93f4bf764da6c80232d8e4947,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 162.61435
+      value: 100.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 107d6ac93f4bf764da6c80232d8e4947,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -15.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 107d6ac93f4bf764da6c80232d8e4947,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -72.903175
+      value: -104.94
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 107d6ac93f4bf764da6c80232d8e4947,
         type: 3}
@@ -7136,7 +7130,7 @@ PrefabInstance:
         type: 3}
       propertyPath: promptUI
       value: 
-      objectReference: {fileID: 969621550}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -306,10 +306,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: {fileID: 3374860073313533120}
   transitionTime: 1
-  promptUI: {fileID: 0}
-  player: {fileID: 0}
-  door: {fileID: 0}
-  activationDistance: 6
 --- !u!1 &4202720456039108790
 GameObject:
   m_ObjectHideFlags: 0

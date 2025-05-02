@@ -10620,12 +10620,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &149175556 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3201493328380668307, guid: 6773d5362125e46458bacfa19c927de8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1182027335}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &166234545
 GameObject:
   m_ObjectHideFlags: 0
@@ -13847,7 +13841,7 @@ PrefabInstance:
         type: 3}
       propertyPath: promptUI
       value: 
-      objectReference: {fileID: 149175556}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14053,11 +14047,6 @@ PrefabInstance:
     - target: {fileID: 7432935694526490665, guid: 6e6ba376486f9a94ba0c3688ce9dada5,
         type: 3}
       propertyPath: levelLoader
-      value: 
-      objectReference: {fileID: 1799375468}
-    - target: {fileID: 7432935694526490665, guid: 6e6ba376486f9a94ba0c3688ce9dada5,
-        type: 3}
-      propertyPath: levelloader
       value: 
       objectReference: {fileID: 1799375468}
     - target: {fileID: 8573832932454004261, guid: 6e6ba376486f9a94ba0c3688ce9dada5,

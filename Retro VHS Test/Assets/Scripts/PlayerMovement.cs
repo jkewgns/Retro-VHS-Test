@@ -150,7 +150,6 @@ public class PlayerMovement : MonoBehaviour
 
             if (fallDistance > 3f) 
             {
-                Debug.Log($"Player landed after falling {fallDistance} units");
                 PlayLandingSound(fallDistance);
                 StartCoroutine(CameraShake(fallDistance));
             }
@@ -174,7 +173,6 @@ public class PlayerMovement : MonoBehaviour
                 volume = 0.2f;
 
             audioSource.PlayOneShot(landingSound, volume);
-            Debug.Log($"Landing sound played at {Mathf.Round(volume * 100)}% volume after falling {fallDistance} units.");
         }
     }
 
@@ -244,7 +242,6 @@ public class PlayerMovement : MonoBehaviour
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
-        Debug.Log("Player Health: " + currentHealth);
     }
 
     public void Respawn()

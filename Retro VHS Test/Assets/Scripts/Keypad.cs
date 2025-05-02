@@ -16,9 +16,9 @@ public class Keypad : MonoBehaviour
 
     public string answer = "1234";
 
-    //public AudioSource button;
-    //public AudioSource correct;
-    //public AudioSource wrong;
+    public AudioSource button;
+    public AudioSource correct;
+    public AudioSource wrong;
 
     IEnumerator Start()
     {
@@ -31,21 +31,22 @@ public class Keypad : MonoBehaviour
     public void Number(int number)
     {
         textObj.text += number.ToString();
-        //button.Play();
+        button.Play();
     }
 
     public void Execute()
     {
         if (textObj.text == answer)
         {
-            //correct.Play();
-            textObj.text = "Right";
+            correct.Play();
+            textObj.text = "CORRECT";
             levelLoader.SetActive(true);
+            levelLoader.GetComponent<LevelLoader>().LoadNextLevel();
         }
         else
         {
-            //wrong.Play();
-            textObj.text = "Wrong";
+            wrong.Play();
+            textObj.text = "WRONG";
             levelLoader.SetActive(false);
         }
     }
@@ -53,11 +54,12 @@ public class Keypad : MonoBehaviour
     public void Clear()
     {
         textObj.text = "";
-        //button.Play();
+        button.Play();
     }
 
     public void Exit()
     {
+        button.Play();
         keypadUI.SetActive(false);
         player.GetComponent<PlayerMovement>().enabled = true;
         playerCam.GetComponent<MouseLook>().enabled = true;

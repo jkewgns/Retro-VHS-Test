@@ -9,17 +9,18 @@ public class OpenKeyPad : MonoBehaviour
 
     public Transform player;
 
-    public bool inReach;
-
     public float activationDistance = 3f;
     private bool isNearKeypad = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        inReach = false;
+        isNearKeypad = false;
+        keypadText.SetActive(false);
+        keypadObj.GetComponent<Keypad>().enabled = false;
     }
 
+/*
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Reach")
@@ -29,7 +30,7 @@ public class OpenKeyPad : MonoBehaviour
         }
     }
 
-/*
+
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Reach")

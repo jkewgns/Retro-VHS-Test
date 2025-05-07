@@ -16,6 +16,15 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
+    //Bobbing Variables
+    [Header("View Bobbing")]
+    public float bobFrequency = 8f;
+    public float bobAmplitude = 0.05f;
+    private float bobTimer = 0f;
+    public float bobHorizontalAmplitude = 0.03f;
+
+    public ScannerPositionHandler scannerPositionHandler;
+
     // Health Variables
     [Header("Health Settings")]
     public float maxHealth = 100f;
@@ -55,6 +64,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Camera Shake")]
     public Transform cameraTransform;
     private Vector3 originalCameraPosition;
+    private Vector3 shakeOffset = Vector3.zero;
+    private Vector3 bobOffset = Vector3.zero;
     private bool isShaking;
 
     void Start()
@@ -92,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         PlayFootstepSFX();
+        HandleViewBobbing();
         CheckLanding();
     }
 
@@ -129,6 +141,11 @@ public class PlayerMovement : MonoBehaviour
                     int randomIndex = Random.Range(0, currentFootstepSounds.Length);
                     audioSource.volume = isInWater ? 0.5f : 0.1f;
                     audioSource.PlayOneShot(currentFootstepSounds[randomIndex]);
+
+                    if (scannerPositionHandler != null)
+                    {
+                        scannerPositionHandler.OnFootstep();
+                    }
                 }
             }
         }
@@ -136,6 +153,26 @@ public class PlayerMovement : MonoBehaviour
         {
             stepTimer = 0f;
         }
+    }
+
+    void HandleViewBobbing()
+    {
+        if (isMoving && isGrounded)
+        {
+            bobTimer += Time.deltaTime * bobFrequency;
+            
+            float verticalBob = Mathf.Sin(bobTimer) * bobAmplitude;
+            float horizontalBob = Mathf.Sin(bobTimer * 0.5f) * bobHorizontalAmplitude * moveInput.x;
+
+            bobOffset = new Vector3(horizontalBob, verticalBob, 0);
+        }
+        else
+        {
+            bobTimer = 0f;
+            bobOffset = Vector3.Lerp(bobOffset, Vector3.zero, Time.deltaTime * 10f);
+        }
+
+        ApplyCameraOffset();
     }
 
     void CheckLanding()
@@ -212,13 +249,15 @@ public class PlayerMovement : MonoBehaviour
             float x = Random.Range(-1f, 1f) * shakeIntensity;
             float y = Random.Range(-1f, 1f) * shakeIntensity;
 
-            cameraTransform.localPosition = originalCameraPosition + new Vector3(x, y, 0);
+            shakeOffset = new Vector3(x, y, 0);
+            ApplyCameraOffset();
 
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        cameraTransform.localPosition = originalCameraPosition;
+        shakeOffset = Vector3.zero;
+        ApplyCameraOffset();
         isShaking = false;
     }
 
@@ -250,6 +289,12 @@ public class PlayerMovement : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    void ApplyCameraOffset()
+    {
+        cameraTransform.localPosition = originalCameraPosition + bobOffset + shakeOffset;
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Water"))
@@ -270,5 +315,10 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundDistance);
+    }
+
+    public bool IsMoving()
+    {
+        return isMoving;
     }
 }

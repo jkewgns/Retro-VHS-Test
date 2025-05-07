@@ -14114,12 +14114,36 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e6ba376486f9a94ba0c3688ce9dada5, type: 3}
+--- !u!114 &1174247006 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6438816054161695315, guid: 5a69ea47459e61a4083894b4a7e747a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1474756066}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccb604ff3c42ddc45877eb08defe8a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1179828390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 385654743797634637, guid: 5a69ea47459e61a4083894b4a7e747a2,
     type: 3}
   m_PrefabInstance: {fileID: 1474756066}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1179828397 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 444812012696897117, guid: 5a69ea47459e61a4083894b4a7e747a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1474756066}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307144229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32ea9684a6baeb147bc0a2537dc634f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1182027335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14475,16 +14499,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 444812012696897117, guid: 5a69ea47459e61a4083894b4a7e747a2,
+        type: 3}
+      propertyPath: scannerPositionHandler
+      value: 
+      objectReference: {fileID: 1174247006}
     - target: {fileID: 2513930559007138919, guid: 5a69ea47459e61a4083894b4a7e747a2,
         type: 3}
       propertyPath: vfxContainer
       value: 
       objectReference: {fileID: 405733613}
+    - target: {fileID: 4029754846780624177, guid: 5a69ea47459e61a4083894b4a7e747a2,
+        type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1179828397}
     - target: {fileID: 4417958908035012103, guid: 5a69ea47459e61a4083894b4a7e747a2,
         type: 3}
       propertyPath: m_Name
       value: First Person Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6438816054161695315, guid: 5a69ea47459e61a4083894b4a7e747a2,
+        type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1179828397}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

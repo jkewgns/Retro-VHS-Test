@@ -13159,12 +13159,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!4 &529369322 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2627932930178163503, guid: 5a69ea47459e61a4083894b4a7e747a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1474756066}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &563702701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13827,21 +13821,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
-    - target: {fileID: 4715214565288709668, guid: 5742dfe1c87f86d40882b4e5442f7249,
-        type: 3}
-      propertyPath: door
-      value: 
-      objectReference: {fileID: 1735340168}
-    - target: {fileID: 4715214565288709668, guid: 5742dfe1c87f86d40882b4e5442f7249,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 529369322}
-    - target: {fileID: 4715214565288709668, guid: 5742dfe1c87f86d40882b4e5442f7249,
-        type: 3}
-      propertyPath: promptUI
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14114,36 +14093,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e6ba376486f9a94ba0c3688ce9dada5, type: 3}
---- !u!114 &1174247006 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6438816054161695315, guid: 5a69ea47459e61a4083894b4a7e747a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1474756066}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccb604ff3c42ddc45877eb08defe8a02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1179828390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 385654743797634637, guid: 5a69ea47459e61a4083894b4a7e747a2,
     type: 3}
   m_PrefabInstance: {fileID: 1474756066}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1179828397 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 444812012696897117, guid: 5a69ea47459e61a4083894b4a7e747a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1474756066}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 307144229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32ea9684a6baeb147bc0a2537dc634f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1182027335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14499,31 +14454,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 444812012696897117, guid: 5a69ea47459e61a4083894b4a7e747a2,
-        type: 3}
-      propertyPath: scannerPositionHandler
-      value: 
-      objectReference: {fileID: 1174247006}
     - target: {fileID: 2513930559007138919, guid: 5a69ea47459e61a4083894b4a7e747a2,
         type: 3}
       propertyPath: vfxContainer
       value: 
       objectReference: {fileID: 405733613}
-    - target: {fileID: 4029754846780624177, guid: 5a69ea47459e61a4083894b4a7e747a2,
-        type: 3}
-      propertyPath: playerMovement
-      value: 
-      objectReference: {fileID: 1179828397}
     - target: {fileID: 4417958908035012103, guid: 5a69ea47459e61a4083894b4a7e747a2,
         type: 3}
       propertyPath: m_Name
       value: First Person Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6438816054161695315, guid: 5a69ea47459e61a4083894b4a7e747a2,
-        type: 3}
-      propertyPath: playerMovement
-      value: 
-      objectReference: {fileID: 1179828397}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15682,23 +15622,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!4 &1735340168 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2569953643441992624, guid: 6773d5362125e46458bacfa19c927de8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1182027335}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1749293444 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7713503941062220868, guid: 5a69ea47459e61a4083894b4a7e747a2,
     type: 3}
   m_PrefabInstance: {fileID: 1474756066}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1779251783 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4609195922090594070, guid: 5db44fa62b16d6843ae8d54577b051df,
-    type: 3}
-  m_PrefabInstance: {fileID: 2141613467}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1799375468 stripped
 GameObject:
@@ -16217,16 +16145,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScannerTurret
       objectReference: {fileID: 0}
-    - target: {fileID: 7697065285222414461, guid: 5db44fa62b16d6843ae8d54577b051df,
-        type: 3}
-      propertyPath: scanSpread
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7697065285222414461, guid: 5db44fa62b16d6843ae8d54577b051df,
-        type: 3}
-      propertyPath: scanTarget
-      value: 
-      objectReference: {fileID: 1779251783}
     - target: {fileID: 7697065285222414461, guid: 5db44fa62b16d6843ae8d54577b051df,
         type: 3}
       propertyPath: vfxContainer

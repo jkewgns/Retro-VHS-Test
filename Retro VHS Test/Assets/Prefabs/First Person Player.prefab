@@ -339,6 +339,14 @@ MonoBehaviour:
   maxDistance: 2.22
   minDistance: 0.1
   smoothingSpeed: 10
+  idleBobFrequency: 2
+  idleBobAmplitude: 0.04
+  idleRotationAmplitude: 2
+  moveBobFrequency: 8
+  moveBobAmplitude: 0.1
+  moveRotationAmplitude: 6
+  bobOffset: {x: 0, y: 0, z: 0}
+  playerMovement: {fileID: 444812012696897117}
 --- !u!1 &873187690776688134
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,6 +770,14 @@ MonoBehaviour:
   maxDistance: 2.22
   minDistance: 0.1
   smoothingSpeed: 10
+  idleBobFrequency: 2
+  idleBobAmplitude: 0.04
+  idleRotationAmplitude: 2
+  moveBobFrequency: 8
+  moveBobAmplitude: 0.1
+  moveRotationAmplitude: 6
+  bobOffset: {x: 0, y: 0, z: 0}
+  playerMovement: {fileID: 0}
 --- !u!1 &3484937339080358950
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,6 +982,10 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 641
+  bobFrequency: 8
+  bobAmplitude: 0.05
+  bobHorizontalAmplitude: 0.03
+  scannerPositionHandler: {fileID: 6438816054161695315}
   maxHealth: 100
   footstepSounds:
   - {fileID: 8300000, guid: cb79c2f05355f8149b1ac13c5ae3db6b, type: 3}
@@ -1994,3 +2014,11 @@ MonoBehaviour:
   maxDistance: 2.22
   minDistance: 0.1
   smoothingSpeed: 10
+  idleBobFrequency: 2
+  idleBobAmplitude: 0.04
+  idleRotationAmplitude: 2
+  moveBobFrequency: 8
+  moveBobAmplitude: 0.1
+  moveRotationAmplitude: 6
+  bobOffset: {x: 0, y: 0, z: 0}
+  playerMovement: {fileID: 444812012696897117}

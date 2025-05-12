@@ -3904,6 +3904,7 @@ MonoBehaviour:
   scanner: {fileID: 0}
   levelLoader: {fileID: 0}
   textObj: {fileID: 1216163722527997464}
+  keypadText: {fileID: 2111541156604946604}
   answer: 1234
   button: {fileID: 1588286748408738943}
   correct: {fileID: 2256209512284375078}

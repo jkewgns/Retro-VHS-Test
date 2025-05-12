@@ -13,6 +13,7 @@ public class Keypad : MonoBehaviour
     public GameObject levelLoader;
 
     public TMP_Text textObj;
+    public GameObject keypadText;
 
     public string answer = "1234";
 
@@ -73,6 +74,7 @@ public class Keypad : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             keypadUI.SetActive(true);
+            keypadText.SetActive(false);
         }
 
         if (keypadUI.activeInHierarchy)
@@ -82,6 +84,14 @@ public class Keypad : MonoBehaviour
             scanner.SetActive(false);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                keypadUI.SetActive(false);
+                player.GetComponent<PlayerMovement>().enabled = true;
+                playerCam.GetComponent<MouseLook>().enabled = true;
+                scanner.SetActive(true);
+            }
         }        
     }
 }

@@ -517,19 +517,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2513930559007138919, guid: 5a69ea47459e61a4083894b4a7e747a2,
         type: 3}
-      propertyPath: range
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2513930559007138919, guid: 5a69ea47459e61a4083894b4a7e747a2,
-        type: 3}
       propertyPath: vfxContainer
       value: 
       objectReference: {fileID: 146850267}
-    - target: {fileID: 4127766814220454369, guid: 5a69ea47459e61a4083894b4a7e747a2,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4417958908035012103, guid: 5a69ea47459e61a4083894b4a7e747a2,
         type: 3}
       propertyPath: m_Name

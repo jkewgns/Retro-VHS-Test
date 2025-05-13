@@ -318,7 +318,7 @@ MonoBehaviour:
   maxRadius: 10
   minRadius: 1
   pointsPerScan: 100
-  range: 20
+  range: 30
   resolution: 100
 --- !u!114 &4029754846780624177
 MonoBehaviour:
@@ -1123,7 +1123,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
